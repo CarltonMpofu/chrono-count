@@ -35,14 +35,11 @@ p
     /* background-color: #4caf50; */
     background-color: #00BCD4;
     border-radius: 5px;
-    transition: width 1s linear;
+    transition: width 1s ;
 }
 
-
-
-
-#countdown {
-    font-size: 24px;
+#countdown-minutes, #countdown-hours, #countdown-day {
+    /* font-size: 10px; */
     font-weight: bold;
     color: #333;
 }
@@ -51,7 +48,7 @@ p
     position: relative;
 }
 
-.name-text
+.title-text
 {
     display: inline-block;
     /* position: absolute; */

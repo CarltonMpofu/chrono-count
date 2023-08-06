@@ -7,30 +7,34 @@
     <title>Minute Countdown</title>
   </head>
   <body>
+    <main>
+      <h1>Chrono Count</h1>
     <div class="countdown-container">
       <div class="bar">
-        <div class="name-text"><p>Next minute:</p></div>
-        <div class="time-text"><p>5 billion years</p></div>
+        <div class="title-text"><p>Next minute:</p></div>
+        <div class="time-text"><p id="countdown-minutes">5 billion years</p></div>
         <div class="progress-bar">
           <div class="progress progress-minutes"></div>
         </div>
       </div>
 
       <div class="bar">
-        <div class="name-text"><p>Next minute:</p></div>
-        <div class="time-text"><p>5 billion years</p></div>
+        <div class="title-text"><p>Next hour:</p></div>
+        <div class="time-text"><p id="countdown-hours">5 billion years</p></div>
       <div class="progress-bar">
         <div class="progress progress-hours"></div>
       </div>
     </div>
 
-      <div class="countdown-text">
-        <span id="countdown">00:00</span>
-      </div>
-      <div class="countdown-text">
-        <span id="countdown-hours">00:00:00</span>
-      </div>
+    <div class="bar">
+      <div class="title-text"><p>Next day:</p></div>
+      <div class="time-text"><p id="countdown-day">5 billion years</p></div>
+    <div class="progress-bar">
+      <div class="progress progress-day"></div>
+    </div>
+  </div>
     </div>
     <script src="script.js"></script>
+  </main>
   </body>
 </html>
