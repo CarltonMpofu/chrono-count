@@ -38,7 +38,7 @@ p
     transition: width 1s ;
 }
 
-#countdown-minutes, #countdown-hours, #countdown-day {
+#countdown-minutes, #countdown-hours, #countdown-day, #countdown-month {
     /* font-size: 10px; */
     font-weight: bold;
     color: #333;
