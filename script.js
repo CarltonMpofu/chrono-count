@@ -8,6 +8,7 @@ function updateCountdown() {
     const progressBarValentines = document.querySelector('.progress-vday');
     const progressBarMothers = document.querySelector('.progress-mothers');
     const progressBarFathers = document.querySelector('.progress-fathers');
+    const progressBarBirthday = document.querySelector('.progress-birthday');
 
     // Get date
     const now = new Date();
@@ -70,7 +71,7 @@ function updateCountdown() {
    
 
     // If mothers day has already passed then use next year
-    if(now.getMonth() > 4 || now.getMonth() === 4 && now.getDate() > juneDate.getDate())
+    if(now.getMonth() > 5 || now.getMonth() === 5 && now.getDate() > juneDate.getDate())
     {
         // Store this year mothers day as previous
         prevFathersDay = juneDate;
@@ -81,6 +82,19 @@ function updateCountdown() {
     const daysUntilNextFathersDay = Math.floor((juneDate - now) / one_day);
     const maxDaysBetweenFathersDay = Math.floor((juneDate - prevFathersDay) / one_day);
 
+    /* My birthday */
+    const myBirthday = new Date(now.getFullYear(), 5, 8);
+    const prevBirthday = new Date(now.getFullYear()-1, 5, 8);
+
+    // If my birthdaday has already passed then use next year
+    if(now.getMonth() > 5 || now.getMonth() === 5 && now.getDate() > 8)
+    {
+        myBirthday.setFullYear(myBirthday.getFullYear() + 1);
+        prevBirthday.setFullYear(prevBirthday.getFullYear() +1);
+    }
+
+    const daysUntilNextBirthday = Math.floor((myBirthday - now) / one_day)
+    const maxDaysBetweenBirthday = Math.floor((myBirthday - prevBirthday) / one_day)
     
     // Set progress bar width
     progressBarMinutes.style.width = ((60-secondsUntilNextMinute) / 60) * 100 + '%';
@@ -91,6 +105,7 @@ function updateCountdown() {
     progressBarValentines.style.width = ((maxDaysBetweenValentines -daysUntilNextValentines) / maxDaysBetweenValentines) * 100 + '%';
     progressBarMothers.style.width = ((maxDaysBetweenMothersDay -daysUntilNextMothersDay) / maxDaysBetweenMothersDay) * 100 + '%';
     progressBarFathers.style.width = ((maxDaysBetweenFathersDay -daysUntilNextFathersDay) / maxDaysBetweenFathersDay) * 100 + '%';
+    progressBarBirthday.style.width = ((maxDaysBetweenBirthday -daysUntilNextBirthday) / maxDaysBetweenBirthday) * 100 + '%';
     
     // Set time left for elements 
     document.getElementById('countdown-minutes').textContent = `${secondsUntilNextMinute} seconds left`;
@@ -101,6 +116,7 @@ function updateCountdown() {
     document.getElementById('countdown-vday').textContent = `${daysUntilNextValentines} days left`;
     document.getElementById('countdown-mothers').textContent = `${daysUntilNextMothersDay} days left`;
     document.getElementById('countdown-fathers').textContent = `${daysUntilNextFathersDay} days left`;
+    document.getElementById('countdown-birthday').textContent = `${daysUntilNextBirthday} days left`;
 }
 
 updateCountdown();
