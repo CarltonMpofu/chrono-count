@@ -107,8 +107,12 @@ function updateCountdown() {
     progressBarFathers.style.width = ((maxDaysBetweenFathersDay -daysUntilNextFathersDay) / maxDaysBetweenFathersDay) * 100 + '%';
     progressBarBirthday.style.width = ((maxDaysBetweenBirthday -daysUntilNextBirthday) / maxDaysBetweenBirthday) * 100 + '%';
     
+    // document.getElementById('countdown-minutes-bottom').style.visibility = "hidden"
+
+
     // Set time left for elements 
-    document.getElementById('countdown-minutes').textContent = `${secondsUntilNextMinute} seconds left`;
+    document.getElementById('countdown-minutes-top').textContent = `${secondsUntilNextMinute} seconds left`;
+    // document.getElementById('countdown-minutes-bottom').textContent = `${secondsUntilNextMinute} seconds left`;
     document.getElementById('countdown-hours').textContent = `${minutesUntilNextHour} minutes left`;
     document.getElementById('countdown-day').textContent = `${hoursUntilNextDay} hours left`;
     document.getElementById('countdown-month').textContent = `${daysUntilNextMonth} days left`;

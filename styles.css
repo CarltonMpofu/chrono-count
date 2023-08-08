@@ -3,19 +3,64 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    /* height: 100vh; */
     margin: 0;
-    background-color: #f4f4f4;
+    /* background-color: #f4f4f4; */
+    background-color: white;
+}
+
+/* font-family: 'Bebas Neue', sans-serif; */
+/* font-family: 'Pacifico', cursive; */
+
+h1
+{
+    text-align: center;
+    margin-bottom: 0;
+    background-color: #749BC2;
+    border-radius: 5px;
+
+    font-family: 'Abril Fatface', cursive;
+    
+    font-weight: 400;
+    letter-spacing: 2px;
+    font-size: 3.5rem;
+    padding: 20px;
+    margin-top: 10px;
+}
+
+hr
+{
+    margin-bottom: 50px;
 }
 
 p
 {
     margin: 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: 'Nanum Myeongjo', serif;
+    font-weight: 800;
+}
+
+.container
+{
+    /* background-color: #91C8E4; */
+    background-color: #f4f4f4;
+
+    padding: 1px  10px 5px;
+    border-radius: 10px;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 .countdown-container {
     /* text-align: center; */
-    width: 700px;
+    width: 800px;
+}
+
+.bar
+{
+    margin: 40px 0;
 }
 
 .progress-bar {
@@ -24,8 +69,8 @@ p
     background-color: #ccc;
     border-radius: 5px;
     margin:0 auto;
-    margin-top: 5px;
-    margin-bottom: 30px;
+    margin-top: 10px;
+    /* margin-bottom: 30px; */
 
     position: relative;
 }
@@ -33,7 +78,7 @@ p
 .progress {
     height: 100%;
     /* background-color: #4caf50; */
-    background-color: #00BCD4;
+    background-color: #4682A9;
     border-radius: 5px;
     transition: width 0.5s;
 }
@@ -61,7 +106,25 @@ p
 {
     display: inline-block;
     position: absolute; 
-     right: 0px; 
+    right: 0px; 
 }
 
 
+@media screen and (max-width: 860px) {
+    .countdown-container {
+        /* text-align: center; */
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .top
+    {
+        display: none;
+    }
+
+    .bottom
+    {
+        display:block
+    }
+}
