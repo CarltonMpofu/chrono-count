@@ -112,19 +112,98 @@ function updateCountdown() {
 
     // Set time left for elements 
     document.getElementById('countdown-minutes-top').textContent = `${secondsUntilNextMinute} seconds left`;
-    // document.getElementById('countdown-minutes-bottom').textContent = `${secondsUntilNextMinute} seconds left`;
-    document.getElementById('countdown-hours').textContent = `${minutesUntilNextHour} minutes left`;
-    document.getElementById('countdown-day').textContent = `${hoursUntilNextDay} hours left`;
-    document.getElementById('countdown-month').textContent = `${daysUntilNextMonth} days left`;
-    document.getElementById('countdown-year').textContent = `${daysUntilNextYear} days left`;
-    document.getElementById('countdown-vday').textContent = `${daysUntilNextValentines} days left`;
-    document.getElementById('countdown-mothers').textContent = `${daysUntilNextMothersDay} days left`;
-    document.getElementById('countdown-fathers').textContent = `${daysUntilNextFathersDay} days left`;
-    document.getElementById('countdown-birthday').textContent = `${daysUntilNextBirthday} days left`;
+    document.getElementById('countdown-minutes-bottom').textContent = `${secondsUntilNextMinute} seconds left`;
+
+    document.getElementById('countdown-hours-top').textContent = `${minutesUntilNextHour} minutes left`;
+    document.getElementById('countdown-hours-bottom').textContent = `${minutesUntilNextHour} minutes left`;
+
+    document.getElementById('countdown-day-top').textContent = `${hoursUntilNextDay} hours left`;
+    document.getElementById('countdown-day-bottom').textContent = `${hoursUntilNextDay} hours left`;
+
+    document.getElementById('countdown-month-top').textContent = `${daysUntilNextMonth} days left`;
+    document.getElementById('countdown-month-bottom').textContent = `${daysUntilNextMonth} days left`;
+
+    document.getElementById('countdown-year-top').textContent = `${daysUntilNextYear} days left`;
+    document.getElementById('countdown-year-bottom').textContent = `${daysUntilNextYear} days left`;
+
+    document.getElementById('countdown-vday-top').textContent = `${daysUntilNextValentines} days left`;
+    document.getElementById('countdown-vday-bottom').textContent = `${daysUntilNextValentines} days left`;
+
+    document.getElementById('countdown-mothers-top').textContent = `${daysUntilNextMothersDay} days left`;
+    document.getElementById('countdown-mothers-bottom').textContent = `${daysUntilNextMothersDay} days left`;
+
+    document.getElementById('countdown-fathers-top').textContent = `${daysUntilNextFathersDay} days left`;
+    document.getElementById('countdown-fathers-bottom').textContent = `${daysUntilNextFathersDay} days left`;
+
+    document.getElementById('countdown-birthday-top').textContent = `${daysUntilNextBirthday} days left`;
+    document.getElementById('countdown-birthday-bottom').textContent = `${daysUntilNextBirthday} days left`;
+
+    // console.log(window.innerWidth);
+    if(window.innerWidth > 510)
+    {
+        hideBottomCount();
+
+        showTopCount();
+    }
+    else
+    {
+        showBottomCount();
+
+        hideTopCount();
+    }
+
 }
 
 updateCountdown();
 setInterval(updateCountdown, 1000);
+
+function hideTopCount() {
+    document.getElementById('countdown-minutes-top').style.visibility = "hidden";
+    document.getElementById('countdown-hours-top').style.visibility = "hidden";
+    document.getElementById('countdown-day-top').style.visibility = "hidden";
+    document.getElementById('countdown-month-top').style.visibility = "hidden";
+    document.getElementById('countdown-year-top').style.visibility = "hidden";
+    document.getElementById('countdown-vday-top').style.visibility = "hidden";
+    document.getElementById('countdown-mothers-top').style.visibility = "hidden";
+    document.getElementById('countdown-fathers-top').style.visibility = "hidden";
+    document.getElementById('countdown-birthday-top').style.visibility = "hidden";
+}
+
+function showBottomCount() {
+    document.getElementById('countdown-minutes-bottom').style.visibility = "visible";
+    document.getElementById('countdown-hours-bottom').style.visibility = "visible";
+    document.getElementById('countdown-day-bottom').style.visibility = "visible";
+    document.getElementById('countdown-month-bottom').style.visibility = "visible";
+    document.getElementById('countdown-year-bottom').style.visibility = "visible";
+    document.getElementById('countdown-vday-bottom').style.visibility = "visible";
+    document.getElementById('countdown-mothers-bottom').style.visibility = "visible";
+    document.getElementById('countdown-fathers-bottom').style.visibility = "visible";
+    document.getElementById('countdown-birthday-bottom').style.visibility = "visible";
+}
+
+function showTopCount() {
+    document.getElementById('countdown-minutes-top').style.visibility = "visible";
+    document.getElementById('countdown-hours-top').style.visibility = "visible";
+    document.getElementById('countdown-day-top').style.visibility = "visible";
+    document.getElementById('countdown-month-top').style.visibility = "visible";
+    document.getElementById('countdown-year-top').style.visibility = "visible";
+    document.getElementById('countdown-vday-top').style.visibility = "visible";
+    document.getElementById('countdown-mothers-top').style.visibility = "visible";
+    document.getElementById('countdown-fathers-top').style.visibility = "visible";
+    document.getElementById('countdown-birthday-top').style.visibility = "visible";
+}
+
+function hideBottomCount() {
+    document.getElementById('countdown-minutes-bottom').style.visibility = "hidden";
+    document.getElementById('countdown-hours-bottom').style.visibility = "hidden";
+    document.getElementById('countdown-day-bottom').style.visibility = "hidden";
+    document.getElementById('countdown-month-bottom').style.visibility = "hidden";
+    document.getElementById('countdown-year-bottom').style.visibility = "hidden";
+    document.getElementById('countdown-vday-bottom').style.visibility = "hidden";
+    document.getElementById('countdown-mothers-bottom').style.visibility = "hidden";
+    document.getElementById('countdown-fathers-bottom').style.visibility = "hidden";
+    document.getElementById('countdown-birthday-bottom').style.visibility = "hidden";
+}
 
 function getMothersDay(date) {
     // Set mothers day date

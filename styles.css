@@ -1,30 +1,26 @@
 body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* height: 100vh; */
     margin: 0;
-    /* background-color: #f4f4f4; */
     background-color: white;
 }
 
-/* font-family: 'Bebas Neue', sans-serif; */
-/* font-family: 'Pacifico', cursive; */
+main
+{
+    display: flex;
+    justify-content: center;
+    
+}
 
 h1
 {
     text-align: center;
-    margin-bottom: 0;
     background-color: #749BC2;
     border-radius: 5px;
-
     font-family: 'Abril Fatface', cursive;
-    
     font-weight: 400;
     letter-spacing: 2px;
     font-size: 3.5rem;
     padding: 20px;
+    margin-bottom: 0;
     margin-top: 10px;
 }
 
@@ -44,62 +40,24 @@ p
 
 .container
 {
-    /* background-color: #91C8E4; */
     background-color: #f4f4f4;
 
     padding: 1px  10px 5px;
     border-radius: 10px;
     margin-top: 50px;
     margin-bottom: 50px;
-}
-
-.countdown-container {
-    /* text-align: center; */
-    width: 800px;
+    width: 800px;;
 }
 
 .bar
 {
-    margin: 40px 0;
-}
-
-.progress-bar {
-    width: 100%;
-    height: 50px;
-    background-color: #ccc;
-    border-radius: 5px;
-    margin:0 auto;
-    margin-top: 10px;
-    /* margin-bottom: 30px; */
-
-    position: relative;
-}
-
-.progress {
-    height: 100%;
-    /* background-color: #4caf50; */
-    background-color: #4682A9;
-    border-radius: 5px;
-    transition: width 0.5s;
-}
-
-
-.time-text > p {
-    /* font-size: 10px; */
-    font-weight: bold;
-    color: #333;
-}
-
-
-.bar{
+    margin: 40px 0 45px 0;
     position: relative;
 }
 
 .title-text
 {
     display: inline-block;
-    /* position: absolute; */
-    /* left: 0px; */
 }
 
 .time-text
@@ -109,22 +67,53 @@ p
     right: 0px; 
 }
 
+.time-text > p {
+    font-weight: bold;
+    color: #333;
+}
+
+
+.progress-bar {
+    width: 100%;
+    height: 50px;
+    background-color: #ccc;
+    border-radius: 5px;
+    margin:0 auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.progress {
+    height: 100%;
+    background-color: #4682A9;
+    border-radius: 5px;
+    transition: width 0.5s;
+}
+
+
 
 @media screen and (max-width: 860px) {
-    .countdown-container {
+    .container {
         /* text-align: center; */
-        width: 100%;
+        width: 90%;
     }
 }
 
-@media screen and (max-width: 500px) {
-    .top
-    {
-        display: none;
+@media screen and (max-width: 580px) {
+    .container {
+        /* text-align: center; */
+        width: 100%;
     }
 
-    .bottom
+    h1
     {
-        display:block
+        letter-spacing: 2px;
+        font-size: 2.4rem;
+    }
+
+    .bar
+    {
+        margin: 40px 0 70px 0;
     }
 }
