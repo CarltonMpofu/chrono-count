@@ -2,6 +2,7 @@ const express = require("express");
 
 const app = express();
 
+app.use(express.urlencoded({extended: true})); 
 app.use(express.static("public"));
 
 app.get("/", function(req, res)
@@ -12,6 +13,12 @@ app.get("/", function(req, res)
 app.get("/add-day", function(req, res)
 {
     res.sendFile(__dirname + "/addDay.html");
+});
+
+app.post("/add-day", function(req, res)
+{
+    const title = req.body.title;
+    const date = req.body.date;
 });
 
 app.listen(3000, function(){

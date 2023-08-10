@@ -1,0 +1,27 @@
+
+body
+{
+    background-color: #ccc;
+}
+
+form
+{
+    background-color: white;
+    padding: 10px;
+    border-radius: 0 0 10px 10px;
+}
+
+.container
+{
+    margin-top: 50px;
+    max-width: 540px;
+    
+}
+
+.add-text
+{
+    background-color: #749BC2;
+    padding: 10px;
+    border-radius: 10px 10px 0 0;
+}
+
