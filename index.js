@@ -8,42 +8,38 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({extended: true})); 
 app.use(express.static("public"));
 
+// Connect to database
 mongoose.connect('mongodb://127.0.0.1:27017/birthdayDB');
 
+// Create model
 const birthdaySchema = new mongoose.Schema({title: String, date:String});
-
 const Birthday = mongoose.model("Birthday", birthdaySchema);
 
+// Root route
 app.get("/", async function(req, res)
 {
     try
-    {
+    {   
         const days = await Birthday.find({});
         if(days)
         {
-            // days.forEach(day => {
-            //     console.log(day);
-                
-            // });
             res.render("index", {user_days: days});
         }
     }
     catch(error)
     {
-        console.log(error)
-    }
-
-    
-
-    
-    
+        res.send(error)
+    }   
 });
 
+
+// Go to page for adding birthdays
 app.get("/add-day", function(req, res)
 {
     res.render("addDay");
 });
 
+// Create a new birthday
 app.post("/add-day", async function(req, res)
 {
     const title = req.body.title;
@@ -59,7 +55,6 @@ app.post("/add-day", async function(req, res)
     {
         res.send(error);
     }
-    
 
 });
 

@@ -39,6 +39,8 @@ p
     font-weight: 800;
 }
 
+
+
 .container
 {
     background-color: #f4f4f4;
@@ -49,6 +51,8 @@ p
     margin-bottom: 50px;
     width: 800px;;
 }
+
+/* For the title */
 
 .title
 {
@@ -77,6 +81,7 @@ p
     width: 35px;
 }
 
+/* For the bar and progress timers */
 
 .bar
 {
@@ -120,18 +125,16 @@ p
     transition: width 0.5s;
 }
 
-
+/* Media  queries */
 
 @media screen and (max-width: 860px) {
     .container {
-        /* text-align: center; */
         width: 90%;
     }
 }
 
 @media screen and (max-width: 580px) {
     .container {
-        /* text-align: center; */
         width: 100%;
         margin-top: 10px;
     }
