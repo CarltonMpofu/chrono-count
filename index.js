@@ -1,15 +1,35 @@
+require('dotenv').config();
 const express = require("express");
 const mongoose = require("mongoose");
 const ejs = require('ejs');
 
 const app = express();
+const PORT = process.env.PORT || 3000;
 
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({extended: true})); 
 app.use(express.static("public"));
 
+mongoose.set("strictQuery", false);
+
 // Connect to database
-mongoose.connect('mongodb://127.0.0.1:27017/birthdayDB');
+// mongoose.connect('mongodb://127.0.0.1:27017/birthdayDB');
+
+const connectDB = async () => {
+    try {
+      const conn = await mongoose.connect(process.env.MONGO_URI);
+      console.log(`MongoDB Connected: ${conn.connection.host}`);
+    } catch (error) {
+      console.log(error);
+      process.exit(1);
+    }
+}
+
+connectDB().then(() => {
+    app.listen(PORT, () => {
+        console.log("listening for requests");
+    })
+})
 
 // Create model
 const birthdaySchema = new mongoose.Schema({title: String, date:String});
@@ -58,6 +78,6 @@ app.post("/add-day", async function(req, res)
 
 });
 
-app.listen(3000, function(){
-    console.log("Server running on port 3000");
-});
+// app.listen(3000, function(){
+//     console.log("Server running on port 3000");
+// });
