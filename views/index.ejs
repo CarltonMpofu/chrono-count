@@ -16,8 +16,9 @@
       <div class="container">
         <div class="title">
           <h1>Chrono Count</h1>
-          <button class="image-button"><img src="images/add.png" alt="" width="40px"></button>
-          
+          <form class="form-button" action="/add-day" method="get">
+          <button class="image-button" type="submit"><img src="images/add.png" alt=""></button>
+        </form>
         </div>
       
       <hr>
@@ -124,6 +125,42 @@
             <p id="countdown-birthday-bottom">5 billion years</p>
           </div>
         </div>
+
+        <% user_days.forEach(user_day => { %>
+        
+        
+
+        <div class="bar">
+          <div class="user" data-day="<%= user_day.date %>">
+          <div class="title-text"><p><%= user_day.title %>:</p></div>
+          
+          <div class="time-text"><p class="top" >5 billion years</p></div>
+          <div class="progress-bar">
+            <div class="progress progress-user-day"></div>
+          </div>
+          <div class="time-text">
+            <p class="bottom">5 billion years</p>
+          </div>
+        </div>
+        </div>
+
+      <% }); %>
+ 
+        <!-- <div class="bar">
+          <div class="user" data-day="2023-1-29">
+          <div class="title-text"><p>User birthday:</p></div>
+          
+          <div class="time-text"><p class="top" >5 billion years</p></div>
+          <div class="progress-bar">
+            <div class="progress progress-user-day"></div>
+          </div>
+          <div class="time-text">
+            <p class="bottom" >5 billion years</p>
+          </div>
+        </div>
+        </div> -->
+
+        
 
       </div>
       <script src="script.js"></script>

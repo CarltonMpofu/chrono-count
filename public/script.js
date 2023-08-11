@@ -93,8 +93,38 @@ function updateCountdown() {
         prevBirthday.setFullYear(prevBirthday.getFullYear() +1);
     }
 
-    const daysUntilNextBirthday = Math.floor((myBirthday - now) / one_day)
-    const maxDaysBetweenBirthday = Math.floor((myBirthday - prevBirthday) / one_day)
+    const daysUntilNextBirthday = Math.floor((myBirthday - now) / one_day);
+    const maxDaysBetweenBirthday = Math.floor((myBirthday - prevBirthday) / one_day);
+
+    const collection = document.getElementsByClassName("user");
+    for(let i = 0; i < collection.length; i++)
+    {
+        // console.log(i+1);
+        const userElement = collection[i];
+        const user_date =  new Date(userElement.getAttribute("data-day"));
+
+        /* User day */
+        const userDay = new Date(now.getFullYear(), user_date.getMonth(), user_date.getDate());
+        const previousUserDay = new Date(now.getFullYear()-1, user_date.getMonth(), user_date.getDate());
+
+        // If my user day has already passed then use next year
+        if(now.getMonth() > user_date.getMonth() || now.getMonth() === user_date.getMonth() && now.getDate() > user_date.getDate())
+        {
+            userDay.setFullYear(userDay.getFullYear() + 1);
+            previousUserDay.setFullYear(previousUserDay.getFullYear() +1);
+        }
+
+        const daysUntilNextUserDay = Math.floor((userDay - now) / one_day);
+        const maxDaysBetweenUserDays = Math.floor((userDay - previousUserDay) / one_day);
+
+        const countdown_user_top = userElement.children[1];
+        const progressBarUserDay = userElement.children[2];
+        const countdown_user_bottom = userElement.children[3];
+        countdown_user_top.children[0].textContent = `${daysUntilNextUserDay} days left`;
+        countdown_user_bottom.children[0].textContent = `${daysUntilNextUserDay} days left`;
+        progressBarUserDay.children[0].style.width = ((maxDaysBetweenUserDays - daysUntilNextUserDay) / maxDaysBetweenUserDays) * 100 + '%';
+        // console.log(user_date.toDateString() + " -- " + user_date.getMonth());
+    }
     
     // Set progress bar width
     progressBarMinutes.style.width = ((60-secondsUntilNextMinute) / 60) * 100 + '%';
@@ -167,6 +197,12 @@ function hideTopCount() {
     document.getElementById('countdown-mothers-top').style.visibility = "hidden";
     document.getElementById('countdown-fathers-top').style.visibility = "hidden";
     document.getElementById('countdown-birthday-top').style.visibility = "hidden";
+
+    const collection = document.getElementsByClassName("top");
+    for(let i = 0; i < collection.length; i++)
+    {
+        collection[i].style.visibility = "hidden";
+    }
 }
 
 function showBottomCount() {
@@ -179,6 +215,12 @@ function showBottomCount() {
     document.getElementById('countdown-mothers-bottom').style.visibility = "visible";
     document.getElementById('countdown-fathers-bottom').style.visibility = "visible";
     document.getElementById('countdown-birthday-bottom').style.visibility = "visible";
+
+    const collection = document.getElementsByClassName("bottom");
+    for(let i = 0; i < collection.length; i++)
+    {
+        collection[i].style.visibility = "visible";
+    }
 }
 
 function showTopCount() {
@@ -191,6 +233,12 @@ function showTopCount() {
     document.getElementById('countdown-mothers-top').style.visibility = "visible";
     document.getElementById('countdown-fathers-top').style.visibility = "visible";
     document.getElementById('countdown-birthday-top').style.visibility = "visible";
+
+    const collection = document.getElementsByClassName("top");
+    for(let i = 0; i < collection.length; i++)
+    {
+        collection[i].style.visibility = "visible";
+    }
 }
 
 function hideBottomCount() {
@@ -203,6 +251,12 @@ function hideBottomCount() {
     document.getElementById('countdown-mothers-bottom').style.visibility = "hidden";
     document.getElementById('countdown-fathers-bottom').style.visibility = "hidden";
     document.getElementById('countdown-birthday-bottom').style.visibility = "hidden";
+
+    const collection = document.getElementsByClassName("bottom");
+    for(let i = 0; i < collection.length; i++)
+    {
+        collection[i].style.visibility = "hidden";
+    }
 }
 
 function getMothersDay(date) {

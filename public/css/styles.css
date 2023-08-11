@@ -56,10 +56,27 @@ p
     text-align: center;
 }
 
+.form-button
+{
+    display: inline-block;
+}
+
 .image-button
 {
     border-radius: 50%;
+    border: none;
 }
+
+.image-button:hover
+{
+    background-color: #333;
+}
+
+.image-button > img
+{
+    width: 35px;
+}
+
 
 .bar
 {
@@ -127,7 +144,14 @@ p
     h1
     {
         letter-spacing: 2px;
-        font-size: 2.4rem;
+        font-size: 2.3rem;
+        padding-right: 10px;
+        padding-left: 1px;
+    }
+
+    .image-button > img
+    {
+        width: 25px;
     }
 
     .bar

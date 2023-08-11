@@ -1,8 +1,10 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const ejs = require('ejs');
 
 const app = express();
 
+app.set('view engine', 'ejs');
 app.use(express.urlencoded({extended: true})); 
 app.use(express.static("public"));
 
@@ -12,14 +14,34 @@ const birthdaySchema = new mongoose.Schema({title: String, date:String});
 
 const Birthday = mongoose.model("Birthday", birthdaySchema);
 
-app.get("/", function(req, res)
+app.get("/", async function(req, res)
 {
-    res.sendFile(__dirname + "/index.html");
+    try
+    {
+        const days = await Birthday.find({});
+        if(days)
+        {
+            // days.forEach(day => {
+            //     console.log(day);
+                
+            // });
+            res.render("index", {user_days: days});
+        }
+    }
+    catch(error)
+    {
+        console.log(error)
+    }
+
+    
+
+    
+    
 });
 
 app.get("/add-day", function(req, res)
 {
-    res.sendFile(__dirname + "/addDay.html");
+    res.render("addDay");
 });
 
 app.post("/add-day", async function(req, res)
@@ -30,7 +52,7 @@ app.post("/add-day", async function(req, res)
     try
     {
         const newBirthday = new Birthday({title: title, date:date});
-        //await newBirthday.save();
+        await newBirthday.save();
         res.redirect("/");
     }
     catch(error)
