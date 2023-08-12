@@ -10,6 +10,8 @@ main
     
 }
 
+
+
 h1
 {
     
@@ -25,7 +27,7 @@ h1
     display: inline-block;
 }
 
-hr
+hr.top
 {
     margin-bottom: 50px;
 }
@@ -48,7 +50,7 @@ p
     padding: 1px  10px 5px;
     border-radius: 10px;
     margin-top: 50px;
-    margin-bottom: 50px;
+    /* margin-bottom: 50px; */
     width: 800px;;
 }
 
@@ -124,6 +126,18 @@ p
     border-radius: 5px;
     transition: width 0.5s;
 }
+
+footer
+{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+  }
 
 /* Media  queries */
 

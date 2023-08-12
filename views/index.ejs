@@ -1,17 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Nanum+Myeongjo:wght@400;700;800&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="css/styles.css" />
-    <title>Minute Countdown</title>
-  </head>
-  <body>
-    <main>
+
+   <%- include('partials/header'); -%>
+   
+   <main>
       <div class="container">
         <div class="title">
           <h1>Chrono Count</h1>
@@ -20,7 +10,7 @@
         </form>
         </div>
       
-      <hr>
+      <hr class="top">
       <div class="countdown-container">
         <div class="bar">
           <div class="title-text"><p>Next minute:</p></div>
@@ -144,27 +134,11 @@
         </div>
 
       <% }); %>
- 
-        <!-- <div class="bar">
-          <div class="user" data-day="2023-1-29">
-          <div class="title-text"><p>User birthday:</p></div>
-          
-          <div class="time-text"><p class="top" >5 billion years</p></div>
-          <div class="progress-bar">
-            <div class="progress progress-user-day"></div>
-          </div>
-          <div class="time-text">
-            <p class="bottom" >5 billion years</p>
-          </div>
-        </div>
-        </div> -->
-
-        
-
+        <hr>
       </div>
       <script src="script.js"></script>
     </div>
      
     </main>
-  </body>
-</html>
+
+    <%- include('partials/footer'); -%>    
